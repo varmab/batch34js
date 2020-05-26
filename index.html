@@ -1,0 +1,206 @@
+<html>
+    <head>
+        <title>Welcome to JS Class</title>
+        <script>
+            var myName="Varma";
+            var age=46;
+            var isStudent=false;
+
+            age="Fourty six";
+
+            if(typeof(age)!="number"){
+                console.error("Age is not a number")
+            }
+
+            console.log("Welcome to " + myName)
+
+            var x;
+
+            age=null;
+
+            
+            var student={
+                name:"Varma",
+                age:46,
+                isStudent:false,
+                "college name":"JNTU",
+                1:"one"
+            }
+
+            var myKey="college name"
+
+
+            var color="red";
+
+            if(color=="red"){
+                console.log("Color is red")
+            }
+            else if(color=="green"){
+                console.log("Color is green")
+            }
+            else if(color=="black"){
+                console.log("Color is black")
+            }
+            else {
+                console.log("Color is unknown")
+            }
+
+            if((color=="red") || (color=="green")){
+
+            }
+
+            if(color!=="red"){
+
+            }
+
+            if(!(color=="red")){
+                
+            }
+
+            var a=null; //undefined //falsey
+
+            if(a){
+
+            }
+            else
+            {
+
+            }
+
+            //ternary
+            (color=="red") ? console.log("Red") : console.log("Unknown")
+
+            switch(color){
+                case "red":
+                    console.log("red");
+                    break;
+                case "green":
+                    console.log("green");
+                    break;
+                default:
+                    console.log("Unknown")
+            }
+
+            var a=0;
+
+            while(a<=10){
+                console.log(a);
+                a++;
+            }
+
+            var b=0;
+
+            do {
+                console.log(b);
+                b++;
+            } while(b<=10)
+
+            for(var c=0;c<=10;c++){
+                console.log(c)
+            }
+
+            console.log(add(1,2));
+
+            //function declaration // JavaScript Hoisting
+            function add(a,b){
+                return a+b;
+            }
+
+            //function expression
+            var sum=function(a,b){
+              return a+b
+            }
+
+            console.log(sum(2,3));
+
+            var myNumbers=["one","two","three"];
+
+            myNumbers.push("four");
+            myNumbers.unshift("zero");
+            myNumbers.pop();
+            myNumbers.shift();
+
+            var myLetters=["a","b","c"];
+
+            myLetters.forEach(function(value,position){
+                console.log(value + " at " + position)
+            })
+
+
+            var movies=[{
+                id:1,
+                title:"Bahubali",
+                actor:"Prabhas",
+                revenue:300,
+                theaters:["A","B"]
+            },
+            {
+                id:2,
+                title:"Adhurs",
+                actor:"NTR",
+                revenue:50,
+                theaters:["B","C"]
+            },
+            {
+                id:3,
+                title:"Kushi",
+                actor:"Pavan",
+                revenue:15,
+                theaters:["C","D"]
+            }]
+            
+            //every, some, filter, map, reduce
+
+           // 1. Is any movie crossed 100cr revenue?
+           var isAny100=movies.some(function(movie){
+               return movie.revenue>=100;
+           })
+           console.log(isAny100);
+
+           //2. Is all movies crossed 50cr revenue?
+           var isAll50=movies.every(function(movie){
+               return movie.revenue>=50;
+           })
+
+           console.log(isAll50);
+
+           //3. I want list of movies released in theater B
+           var bMovies=movies.filter(function(movie){
+               return movie.theaters.indexOf("B")!=-1;
+           })
+
+           console.log(bMovies);
+
+           //4. I want list of titles of all movies
+           // ["Bahubali","Adhurs","Kushi"]
+
+           var titles=movies.map(function(movie){
+               return movie.title;
+           })
+
+           console.log(titles);
+
+           //5. I want total revenue of all  movies
+           var totalRevenue=movies.reduce(function(total,movie){
+               return total+movie.revenue;
+           },0)
+
+           console.log(totalRevenue);
+
+           //6. I want list of actors as one string with comma separates
+           // "Prabhas,NTR,Pavan"
+           var actors=movies.reduce(function(actors,movie){
+               if(actors=="") return movie.actor;
+               return actors + "," + movie.actor;
+           },"");
+
+           console.log(actors);
+
+
+        </script>
+        <script src="class.js"></script>
+    </head>
+    <body>
+        <h1>Welcome to JS class</h1>
+    </body>
+</html>
