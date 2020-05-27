@@ -127,19 +127,20 @@
             })
 
 
-            var movies=[{
-                id:1,
-                title:"Bahubali",
-                actor:"Prabhas",
-                revenue:300,
-                theaters:["A","B"]
-            },
+            var movies=[
             {
-                id:2,
+                id:1,
                 title:"Adhurs",
                 actor:"NTR",
                 revenue:50,
                 theaters:["B","C"]
+            },
+            {
+                id:2,
+                title:"Bahubali",
+                actor:"Prabhas",
+                revenue:300,
+                theaters:["A","B"]
             },
             {
                 id:3,
@@ -196,6 +197,77 @@
 
            console.log(actors);
 
+        //    var user={}
+
+        //    user.name="Varma";
+        //    user["age"]=46;
+
+        //    var myKey="college name";
+        //    user[myKey]="JNTU"
+
+        //7. I want an object containing movie title as key and actor as value for all movies
+        /*
+           {
+             "Bahubali":"Prabhas",
+             "Adhurs":"NTR",
+             "Kushi":"Pavan"
+           }
+        */
+
+        var titleActors=movies.reduce(function(titleActors,movie){
+            titleActors[movie.title]=movie.actor;
+            return titleActors;
+        },{})
+
+        console.log(titleActors);
+
+        //8. I want an array of all theaters of all movies released but no duplicates
+        // ["A","B","C","D"]
+        var theaters=movies.reduce(function(theaters,movie){
+            movie.theaters.forEach(function(theater){
+                if(theaters.includes(theater)==false){
+                    theaters.push(theater)
+                }
+            })
+            return theaters;
+        },[])
+
+        console.log(theaters);
+
+        var a=[1,2,3]
+        var b=[4,5,6]
+
+        var c=a.concat(b);
+        console.log(JSON.stringify(c))
+
+        //reverse
+
+        //sort
+        movies.sort(function(a,b){
+            if(a.revenue>b.revenue) return 1;
+            if(a.revenue<b.revenue) return -1;
+            return 0;
+        })
+
+        console.log(movies);
+
+
+        //find - returns one element passing test
+
+        var bahubali=movies.filter(function(movie){
+            return movie.title=="Bahubali"
+        })
+        console.log(bahubali[0]);
+        
+        var movie=movies.find(function(movie){
+            return movie.revenue>20
+        })
+        console.log(movie);
+
+        var movieIndex=movies.findIndex(function(movie){
+            return movie.revenue>20
+        })
+        console.log(movieIndex);
 
         </script>
         <script src="class.js"></script>
